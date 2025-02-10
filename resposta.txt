@@ -1,1 +1,67 @@
 Coloque aqui todas as respostas das práticas indicadas no README.md
+
+Respostas 1. route
+1- A rede é 172.18.0.0 e a máscara de sub-rede é 255.255.0.0
+2- O roteador padrão é 172.18.0.1
+3- Existem 2 rotas configuradas (Uma rota padrão (0.0.0.0) que direciona o tráfego para o gateway 172.18.0.1) e (Uma rota para a rede 172.18.0.0 com máscara 255.255.0.0, que é a rede local.)
+
+Respostas 2. ip
+1- O IP da interface de rede é 172.18.0.2
+2- A rede é 172.18.0.0 e a máscara de sub-rede é /16 (ou 255.255.0.0)
+3- O nome da interface de rede principal é eth0
+
+Respostas 3. nslookup
+1- ip do google : 172.217.30.36
+2- ip do whitehouse : 192.0.66.51
+3- ip do rnp: 104.18.26.22
+4- ip da ufpb: 150.165.254.52
+
+Respostas 4. ping
+1:
+127.0.0.1--time=0.034ms em media
+172.18.0.2(meu ip)-- time= 0.045ms em media
+2:
+www.ufpb.br-- time= 34.247ms em media
+www.yahoo.com-- time= 170.253ms em media
+www.brasil.gov.br-- time= 79.965ms em media
+www.dce.ufpb.br-- unknown host
+3:
+www.google.com-- time= 57.258ms em media
+www.rnp.br-- time= 58.780ms em media
+www.whitehouse.gov-- time= 60.231ms em media
+
+-- Disponabilidade de rotas, rede, trafego.
+
+Respostas 5. traceroute
+Alguns roteadores não respondem ao `traceroute` devido a configurações de segurança ou políticas que bloqueiam pacotes ICMP. Isso não indica necessariamente um problema na rede, mas sim uma prática comum para proteger a infraestrutura.
+
+Respostas 6. netstat
+1:
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 127.0.0.11:32907        0.0.0.0:*               LISTEN      -       
+
+udp        0      0 127.0.0.11:47237        0.0.0.0:*                           -       
+
+2:
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+default         172.18.0.1      0.0.0.0         UG        0 0          0 eth0
+172.18.0.0      0.0.0.0         255.255.0.0     U         0 0          0 eth0
+
+São muito parecidos mais não iguais, existem algumas informações adicionais que não haviam no route.
+
+Respostas 7. telnet
+O servidor da ufpbr não respondeu, retornou a seguinte mensagem : Connection closed by foreign host.
+Não consegui conexão, a mensagem que retorna da pra você identificar o problema.
+
+Respostas 8. mtr
+
+--Ele é útil para diagnosticar problemas de rede, como perda de pacotes e gargalos, e para monitorar a estabilidade e desempenho da rede.
+
+--O mtr exibe dados como perda de pacotes, latência e rota em tempo real. Para interpretar:
+Perda de Pacotes: Indica problemas de conexão ou congestionamento.
+Latência: Mostra atrasos na rede, ajudando a identificar gargalos.
+Rota: Revela o caminho dos pacotes, destacando possíveis falhas.
+
+Esses dados ajudam a identificar onde ocorrem problemas, como roteadores com alta perda de pacotes ou links com latência elevada, facilitando o diagnóstico e a correção de falhas na rede.
